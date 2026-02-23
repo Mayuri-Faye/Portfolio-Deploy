@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Mayuri Faye</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 80px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-card {
+            width: 400px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .form-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .form-card h2 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        .form-card p {
+            margin-bottom: 30px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 2px solid #38bdf8;
+            background: transparent;
+            color: white;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 0;
+            top: 12px;
+            font-size: 14px;
+            color: #94a3b8;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: -12px;
+            font-size: 12px;
+            color: #38bdf8;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            background: #38bdf8;
+            color: black;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #38bdf8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            font-size: 13px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div><strong>Mayuri Faye</strong></div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.pdf" download class="resume-btn">Download Resume</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="form-card">
+        <h2>Let's Connect 🚀</h2>
+        <p>Interested in collaboration or hiring? Send your details below.</p>
+
+        <form id="contact-form">
+
+            <div class="input-group">
+                <input type="text" id="name" required>
+                <label>Full Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="phone" required>
+                <label>Phone Number</label>
+            </div>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 Mayuri Faye | Serverless Architecture (S3 + CloudFront + Supabase)
+</footer>
+
+<script>
+
+
+<!--    const { createClient } = supabase;-->
+<!--    const client = createClient(supabaseUrl, supabaseKey);-->
+
+<!--    const form = document.getElementById("contact-form");-->
+
+<!--    form.addEventListener("submit", async (e) => {-->
+<!--        e.preventDefault();-->
+
+<!--        const name = document.getElementById("name").value;-->
+<!--        const email = document.getElementById("email").value;-->
+<!--        const phone = document.getElementById("phone").value;-->
+
+<!--        const { error } = await client-->
+<!--            .from("contacts")-->
+<!--            .insert([{ name, email, phone }]);-->
+
+<!--        if (error) {-->
+<!--            alert("❌ Error submitting form!");-->
+<!--            console.error(error);-->
+<!--        } else {-->
+<!--            alert("✅ Message Sent Successfully!");-->
+<!--            form.reset();-->
+<!--        }-->
+<!--    });-->
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- <script src="{{ url_for('static', filename='supabase.js') }}"></script> -->
+<script src="supabase.js"></script>
+</body>
+</html>
